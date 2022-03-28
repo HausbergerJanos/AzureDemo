@@ -31,6 +31,7 @@ steps:
     jarsignerKeystorePassword: '$(jarsignerKeystorePassword)'
     jarsignerKeystoreAlias: 'upload'
     jarsignerKeyPassword: '$(jarsignerKeyPassword)'
+    jarsignerArguments: '-sigalg SHA256withRSA -digestalg SHA-256'
     zipalign: true
 
 - task: CopyFiles@2
@@ -49,5 +50,5 @@ steps:
     serviceConnection: 'GooglePlayConnectionService'
     applicationId: 'com.application.azuredemo'
     action: 'SingleBundle'
-    bundleFile: 'app/build/intermediates/intermediary_bundle/release/intermediary-bundle.aab'
+    bundleFile: 'app/build/outputs/bundle/release/app-release.aab'
     track: 'internal'
