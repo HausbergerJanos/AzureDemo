@@ -11,34 +11,6 @@ pool:
 
 steps:
 
-- task: Gradle@2
-  inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'bundleRelease'
-
-- task: AndroidSigning@2
-  inputs:
-    apkFiles: '**/*.aab'
-    jarsign: true
-    jarsignerKeystoreFile: 'keystore.jks'
-    jarsignerKeystorePassword: '$(jarsignerKeystorePassword)'
-    jarsignerKeystoreAlias: 'upload'
-    jarsignerKeyPassword: '$(jarsignerKeyPassword)'
-    zipalign: true
-
-- task: CopyFiles@2
-  inputs:
-    contents: '**/*.aab'
-    targetFolder: '$(build.artifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
-
 - task: DownloadBuildArtifacts@0
   displayName: 'Download artifacts'
   inputs:
