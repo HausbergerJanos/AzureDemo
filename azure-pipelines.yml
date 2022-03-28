@@ -43,3 +43,11 @@ steps:
     pathtoPublish: '$(build.artifactStagingDirectory)'
     artifactName: 'internal'
     publishLocation: 'Container'
+    
+- task: GooglePlayRelease@4
+  inputs:
+    serviceConnection: 'GooglePlayConnectionService'
+    applicationId: 'com.application.azuredemo'
+    action: 'SingleBundle'
+    bundleFile: 'build/app/outputs/bundle/release/app-release.aab'
+    track: 'internal'
