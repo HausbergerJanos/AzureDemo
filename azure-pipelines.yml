@@ -49,5 +49,5 @@ steps:
     serviceConnection: 'GooglePlayConnectionService'
     applicationId: 'com.application.azuredemo'
     action: 'SingleBundle'
-    bundleFile: 'app/build/outputs/bundle/release/app-release.aab'
+    bundleFile: 'app/build/intermediates/intermediary_bundle/release/intermediary-bundle.aab'
     track: 'internal'
