@@ -37,10 +37,11 @@ steps:
   inputs:
     contents: '**/*.aab'
     targetFolder: '$(build.artifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    pathtoPublish: '$(build.artifactStagingDirectory)'
+    artifactName: 'drop'
     publishLocation: 'Container'
 
 - task: DownloadBuildArtifacts@0
@@ -48,4 +49,4 @@ steps:
   inputs:
     buildType: 'current'
     downloadType: 'specific'
-    downloadPath: 'releases_drop'
+    downloadPath: 'drop'
