@@ -38,3 +38,10 @@ steps:
     contents: '**/*.aab'
     targetFolder: '$(build.artifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
+
+- task: DownloadBuildArtifacts@0
+  displayName: 'Download artifacts'
+  inputs:
+    buildType: 'current'
+    downloadType: 'specific'
+    downloadPath: 'releases_drop'
