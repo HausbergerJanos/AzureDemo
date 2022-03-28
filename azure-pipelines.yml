@@ -50,3 +50,11 @@ steps:
     buildType: 'current'
     downloadType: 'specific'
     downloadPath: 'drop'
+
+- task: GooglePlayRelease@4
+  inputs:
+    serviceConnection: 'GooglePlayConnectionService'
+    applicationId: 'com.application.azuredemo'
+    action: 'SingleBundle'
+    bundleFile: 'drop/android_packages/*.aab'
+    track: 'internal'
