@@ -32,3 +32,9 @@ steps:
     jarsignerKeystoreAlias: 'upload'
     jarsignerKeyPassword: '$(jarsignerKeyPassword)'
     zipalign: true
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.apk'
+    targetFolder: '$(build.artifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
